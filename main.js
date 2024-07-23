@@ -1,5 +1,7 @@
 
 
+
+
 const config = {
     type: Phaser.AUTO,
     width: 800,
@@ -23,10 +25,25 @@ function create() {
     // Initialize game objects here
     this.add.image(400, 300, 'background');
     this.character = this.add.sprite(400, 300, 'character');
+
+    // Enable keyboard input
+    this.cursors = this.input.keyboard.createCursorKeys();
 }
 
 function update() {
     // Game logic goes here
+    if (this.cursors.left.isDown) {
+        this.character.x -= 2;
+    } else if (this.cursors.right.isDown) {
+        this.character.x += 2;
+    }
+
+    if (this.cursors.up.isDown) {
+        this.character.y -= 2;
+    } else if (this.cursors.down.isDown) {
+        this.character.y += 2;
+    }
 }
+
 
 
