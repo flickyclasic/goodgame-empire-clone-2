@@ -4,6 +4,8 @@
 
 
 
+
+
 const config = {
     type: Phaser.AUTO,
     width: 800,
@@ -32,6 +34,12 @@ function create() {
 
     // Enable keyboard input
     this.cursors = this.input.keyboard.createCursorKeys();
+
+    // Enable interaction with the building
+    this.building.setInteractive();
+    this.building.on('pointerdown', () => {
+        console.log('Building clicked!');
+    });
 }
 
 function update() {
@@ -48,6 +56,7 @@ function update() {
         this.character.y += 2;
     }
 }
+
 
 
 
